@@ -1,0 +1,11 @@
+tkinter
+csv
+os
+startobs
+subprocess
+time
+shutil
+datetime
+json
+websocket
+pydub
