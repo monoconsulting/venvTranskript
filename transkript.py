@@ -463,11 +463,11 @@ def process_transcription():
     doc_file_name = f"{new_filename_base}.docx"
 
     create_word_document(
-        transcription, summary, key_points, action_items, 
+        transcription, summary, key_points, action_items, participants_intro, 
         ioi_discussion, sentiment, 
         segment_time, transcribe_time, summary_time, key_points_time, 
         action_items_time, participants_time, ioi_time, sentiment_time, total_time, 
-        title, participants_intro, mentioned_non_participants, 
+        title, mentioned_non_participants, 
         doc_file_name, selected_project, meeting_type, timestamp
     )
         
