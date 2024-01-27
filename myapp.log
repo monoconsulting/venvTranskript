@@ -1,15 +1,6 @@
-2024-01-27 10:50:26 - root - INFO - gui.py startas
-2024-01-27 10:50:26 - root - INFO - transkript.py startas
-2024-01-27 10:50:27 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/audio/transcriptions "HTTP/1.1 200 OK"
-2024-01-27 10:50:30 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2024-01-27 10:50:38 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2024-01-27 10:50:47 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2024-01-27 10:50:49 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2024-01-27 10:50:55 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2024-01-27 10:51:03 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2024-01-27 10:51:07 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2024-01-27 10:51:07 - root - INFO - Söker företagsnamn för projekt: 'Testmötestitel'
-2024-01-27 10:51:07 - root - INFO - Läser rad: {'company_name': 'IT-Centrum', 'project_name': 'Samsourcing-projektet', 'project_responsible_person': 'Magnus Larsson', 'project_manager': 'Mattias Cederlund'}
-2024-01-27 10:51:07 - root - INFO - Läser rad: {'company_name': 'Statens Fastighetsverk', 'project_name': 'Inventering infrastruktur', 'project_responsible_person': 'Patrik Olsson', 'project_manager': 'Mattias Cederlund'}
-2024-01-27 10:51:07 - root - INFO - Läser rad: {'company_name': 'Testprojekt', 'project_name': 'Testmötestitel', 'project_responsible_person': 'Testchef', 'project_manager': 'TestPL'}
-2024-01-27 10:51:07 - root - INFO - Hittade matchning: Testprojekt
+2024-01-27 11:15:55 - root - INFO - gui.py startas
+2024-01-27 11:15:55 - root - INFO - transkript.py startas
+2024-01-27 11:15:56 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2024-01-27 11:15:56 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2024-01-27 11:15:57 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2024-01-27 11:15:57 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"

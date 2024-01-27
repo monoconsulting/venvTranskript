@@ -317,7 +317,10 @@ def sentiment_analysis(transcription):
             }
         ]
     )
-def create_word_document(transcription, summary, key_points, action_items, ioi_discussion, sentiment, segment_time, transcribe_time, summary_time, key_points_time, action_items_time, participants_time, ioi_time, sentiment_time, total_time, title, participants_intro, mentioned_non_participants, doc_file_name, selected_project, meeting_type, timestamp):
+def create_word_document(transcription, summary, key_points, action_items, 
+                         ioi_discussion, sentiment, segment_time, transcribe_time, summary_time, key_points_time, 
+                         action_items_time, participants_time, ioi_time, sentiment_time, total_time, title, participants_intro, 
+                         mentioned_non_participants, doc_file_name, selected_project, meeting_type, timestamp, word_path):
     company_name = get_company_name(selected_project)
     doc_title = f"{company_name} - {selected_project}"
 
@@ -366,7 +369,7 @@ def create_word_document(transcription, summary, key_points, action_items, ioi_d
         doc.add_paragraph(transcription)
 
 
-        full_file_path = os.path.join(output_word_directory, doc_file_name)
+        full_file_path = os.path.join(word_path, doc_file_name)
         doc.save(full_file_path)
         print(f"Dokument sparad som {full_file_path}")
     except Exception as e:
@@ -471,7 +474,7 @@ def process_transcription():
     segment_time, transcribe_time, summary_time, key_points_time, 
     action_items_time, participants_time, ioi_time, sentiment_time, total_time, 
     title, participants_intro, mentioned_non_participants, 
-    doc_file_name, selected_project, meeting_type, timestamp
+    doc_file_name, selected_project, meeting_type, timestamp, word_path
 )
 
         
