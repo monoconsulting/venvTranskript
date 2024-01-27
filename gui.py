@@ -66,38 +66,72 @@ class GuiApp:
         with open(filename, 'r', encoding='utf-8') as file:
             csv_reader = csv.DictReader(file, delimiter=';')
             for row in csv_reader:
-                project_data.append((row['project_name'], row['company_name']))
+                # Ersätt bakåtslash med snedstreck (/) för att hantera sökvägar korrekt
+                word_path = row['word_path'].replace('\\', '/')
+                project_data.append((row['project_name'], row['company_name'], word_path))
+                print(f"Projekt: {row['project_name']}, Företag: {row['company_name']}, Sökväg: {word_path} från def read_projects i gui.py")
         return project_data
-
-    def show_selections(self):
-        selected_project_name = self.project_var.get()
-        selected_project_info = next((item for item in self.project_options if item[0] == selected_project_name), (None, None))
-        self.selected_project, self.company_name = selected_project_info
-        self.meeting_type = self.meeting_type_entry.get()
-        self.participants = self.participant_list_entry.get()
-        print(f"Valt projekt: {self.selected_project}, Företag: {self.company_name}, Mötestyp: {self.meeting_type}, Deltagarlista: {self.participants}")
 
     def start_process(self):
         selected_project_name = self.project_var.get()
-        selected_project_info = next((item for item in self.project_options if item[0] == selected_project_name), (None, None))
-        self.selected_project, self.company_name = selected_project_info
+        selected_project_info = next((item for item in self.project_options if item[0] == selected_project_name), (None, None, None))
+        self.selected_project, self.company_name, word_path = selected_project_info
         self.meeting_type = self.meeting_type_entry.get()
         self.participants = self.participant_list_entry.get()
+        print(f"Valt projekt: {self.selected_project}, Företag: {self.company_name}, Mötestyp: {self.meeting_type}, Deltagarlista: {self.participants}, Sökväg: {word_path} från def start_process i gui.py")   
 
-        if None not in [self.selected_project, self.company_name, self.meeting_type, self.participants]:
-# Skriv ut valen till en fil
+        if None not in [self.selected_project, self.company_name, self.meeting_type, self.participants, word_path]:
             with open("selected_options.txt", "w") as file:
                 file.write(f"{self.selected_project}\n")
                 file.write(f"{self.company_name}\n")
                 file.write(f"{self.meeting_type}\n")
                 file.write(f"{self.participants}\n")
+                file.write(f"{word_path}\n")
             print("Valen har sparats")
-
         else:
             print("Ett eller flera val är inte gjorda korrekt")
-
-        # Stäng ner GUI:t
+        
         self.root.destroy()
+
+    def show_selections(self):
+        selected_project_name = self.project_var.get()
+        selected_project_info = next((item for item in self.project_options if item[0] == selected_project_name), (None, None, None))
+        self.selected_project, self.company_name, word_path = selected_project_info
+        self.meeting_type = self.meeting_type_entry.get()
+        self.participants = self.participant_list_entry.get()
+        print(f"Valt projekt: {self.selected_project}, Företag: {self.company_name}, Mötestyp: {self.meeting_type}, Deltagarlista: {self.participants}, Sökväg: {word_path} från def show_selections i gui.py")
+
+
+def start_process(self):
+    selected_project_name = self.project_var.get()
+    selected_project_info = next((item for item in self.project_options if item[0] == selected_project_name), (None, None, None))
+    self.selected_project, self.company_name, word_path = selected_project_info
+    self.meeting_type = self.meeting_type_entry.get()
+    self.participants = self.participant_list_entry.get()
+    print(f"Valt projekt: {self.selected_project}, Företag: {self.company_name}, Mötestyp: {self.meeting_type}, Deltagarlista: {self.participants}, Sökväg: {word_path} från def start_process i gui.py")   
+
+    if None not in [self.selected_project, self.company_name, self.meeting_type, self.participants, word_path]:
+        with open("selected_options.txt", "w") as file:
+            file.write(f"{self.selected_project}\n")
+            file.write(f"{self.company_name}\n")
+            file.write(f"{self.meeting_type}\n")
+            file.write(f"{self.participants}\n")
+            file.write(f"{word_path}\n")
+        print("Valen har sparats")
+    else:
+        print("Ett eller flera val är inte gjorda korrekt")
+    
+    self.root.destroy()
+
+
+    if None not in [self.selected_project, self.company_name, self.meeting_type, self.participants, word_path]:
+            with open("selected_options.txt", "w") as file:
+                file.write(f"{self.selected_project}\n")
+                file.write(f"{self.company_name}\n")
+                file.write(f"{self.meeting_type}\n")
+                file.write(f"{self.participants}\n")
+                file.write(word_path + "\n")    # Sparar word_path  
+                print(f"Valen har sparats i def start_process i gui.py Project: {self.selected_project}, Företag: {self.company_name}, Mötestyp: {self.meeting_type}, Deltagarlista: {self.participants}, Sökväg: {word_path}") 
 
 # Om du vill köra GUI direkt för testning
 if __name__ == "__main__":

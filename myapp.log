@@ -1,6 +1,16 @@
-2024-01-27 11:15:55 - root - INFO - gui.py startas
-2024-01-27 11:15:55 - root - INFO - transkript.py startas
-2024-01-27 11:15:56 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
-2024-01-27 11:15:56 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
-2024-01-27 11:15:57 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
-2024-01-27 11:15:57 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2024-01-27 12:37:49 - root - INFO - gui.py startas
+2024-01-27 12:37:49 - root - INFO - transkript.py startas
+2024-01-27 12:37:50 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/audio/transcriptions "HTTP/1.1 200 OK"
+2024-01-27 12:37:59 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-01-27 12:38:02 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-01-27 12:38:09 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-01-27 12:38:11 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-01-27 12:38:20 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-01-27 12:38:25 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-01-27 12:38:33 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-01-27 12:38:33 - root - INFO - Söker företagsnamn för projekt: 'Samsourcing-projektet'
+2024-01-27 12:38:33 - root - INFO - Läser rad: {'company_name': 'IT-Centrum', 'project_name': 'Samsourcing-projektet', 'project_responsible_person': 'Magnus Larsson', 'project_manager': 'Mattias Cederlund', 'word_path': 'E:\\Dropbox\\# IT-CENTRUM\\# TRANSKRIPTION'}
+2024-01-27 12:38:33 - root - INFO - Hittade matchning: IT-Centrum
+2024-01-27 12:38:33 - root - INFO - Söker företagsnamn för projekt: 'Samsourcing-projektet'
+2024-01-27 12:38:33 - root - INFO - Läser rad: {'company_name': 'IT-Centrum', 'project_name': 'Samsourcing-projektet', 'project_responsible_person': 'Magnus Larsson', 'project_manager': 'Mattias Cederlund', 'word_path': 'E:\\Dropbox\\# IT-CENTRUM\\# TRANSKRIPTION'}
+2024-01-27 12:38:33 - root - INFO - Hittade matchning: IT-Centrum

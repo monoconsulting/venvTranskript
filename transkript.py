@@ -42,6 +42,7 @@ processed_mp3_directory = "E:\\Dropbox\\Meetings\\Audio\\Transcribed_Mp3"
 os.makedirs(output_word_directory, exist_ok=True)
 os.makedirs(processed_mp3_directory, exist_ok=True)
 
+
 def extract_simple_timestamp(filename):
     # Ta bort filändelsen och dela upp resten av strängen
     name_without_extension = filename.split('.')[0]
@@ -321,6 +322,7 @@ def create_word_document(transcription, summary, key_points, action_items,
                          ioi_discussion, sentiment, segment_time, transcribe_time, summary_time, key_points_time, 
                          action_items_time, participants_time, ioi_time, sentiment_time, total_time, title, participants_intro, 
                          mentioned_non_participants, doc_file_name, selected_project, meeting_type, timestamp, word_path):
+
     company_name = get_company_name(selected_project)
     doc_title = f"{company_name} - {selected_project}"
 
@@ -391,12 +393,18 @@ def apply_corrections(text, corrections):
     return text
 
 def process_transcription():
-    # Läs valen från filen
     with open("selected_options.txt", "r") as file:
         selected_project = file.readline().strip()
+        print(f"Läst projekt: {selected_project}")
         company_name = file.readline().strip()
+        print(f"Läst företagsnamn: {company_name}")
         meeting_type = file.readline().strip()
+        print(f"Läst mötestyp: {meeting_type}")
         participants_intro = file.readline().strip().split(", ")
+        print(f"Lästa deltagare: {participants_intro}")
+        word_path = file.readline().strip()
+        print(f"Läst sökväg: {word_path}")
+        print(f"Valda projekt: {selected_project}, Företag: {company_name}, Mötestyp: {meeting_type}, Deltagarlista: {participants_intro}, Sökväg: {word_path}")
 
     # timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M')
     transcription = summary = key_points = action_items = ""
@@ -463,19 +471,26 @@ def process_transcription():
         total_time = t10 - t0
 
      # Skapa Word-dokument
-    new_filename_base = f"{selected_project}_{meeting_type}_{timestamp}"
-    doc_file_name = f"{new_filename_base}.docx"
+        new_filename_base = f"{selected_project}_{meeting_type}_{timestamp}"
+        doc_file_name = f"{new_filename_base}.docx"
+
+    create_word_document(
+        transcription, summary, key_points, action_items, ioi_discussion, sentiment, 
+        segment_time, transcribe_time, summary_time, key_points_time, 
+        action_items_time, participants_time, ioi_time, sentiment_time, total_time, 
+        title, participants_intro, mentioned_non_participants, 
+        doc_file_name, selected_project, meeting_type, timestamp, word_path
+    )
     print("Typ av participants_intro:", type(participants_intro))
     print("Innehåll i participants_intro:", participants_intro)
 
     create_word_document(
-    transcription, summary, key_points, action_items, 
-    ioi_discussion, sentiment, 
-    segment_time, transcribe_time, summary_time, key_points_time, 
-    action_items_time, participants_time, ioi_time, sentiment_time, total_time, 
-    title, participants_intro, mentioned_non_participants, 
-    doc_file_name, selected_project, meeting_type, timestamp, word_path
-)
+        transcription, summary, key_points, action_items, ioi_discussion, sentiment, 
+        segment_time, transcribe_time, summary_time, key_points_time, 
+        action_items_time, participants_time, ioi_time, sentiment_time, total_time, 
+        title, participants_intro, mentioned_non_participants, 
+        doc_file_name, selected_project, meeting_type, timestamp, word_path
+    )
 
         
     # Flytta den bearbetade MP3-filen
