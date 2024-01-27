@@ -335,6 +335,7 @@ def create_word_document(transcription, summary, key_points, action_items, ioi_d
         doc.add_heading('1. Närvarande', level=2)
         for participant in participants_intro:
             doc.add_paragraph(participant)  # Se till att varje deltagare är på en ny rad
+            print(f"Deltagare: {participant}")
         # 2. Summering
         doc.add_heading('2. Summering', level=2)
         doc.add_paragraph(summary)
@@ -461,15 +462,18 @@ def process_transcription():
      # Skapa Word-dokument
     new_filename_base = f"{selected_project}_{meeting_type}_{timestamp}"
     doc_file_name = f"{new_filename_base}.docx"
+    print("Typ av participants_intro:", type(participants_intro))
+    print("Innehåll i participants_intro:", participants_intro)
 
     create_word_document(
-        transcription, summary, key_points, action_items, participants_intro, 
-        ioi_discussion, sentiment, 
-        segment_time, transcribe_time, summary_time, key_points_time, 
-        action_items_time, participants_time, ioi_time, sentiment_time, total_time, 
-        title, mentioned_non_participants, 
-        doc_file_name, selected_project, meeting_type, timestamp
-    )
+    transcription, summary, key_points, action_items, 
+    ioi_discussion, sentiment, 
+    segment_time, transcribe_time, summary_time, key_points_time, 
+    action_items_time, participants_time, ioi_time, sentiment_time, total_time, 
+    title, participants_intro, mentioned_non_participants, 
+    doc_file_name, selected_project, meeting_type, timestamp
+)
+
         
     # Flytta den bearbetade MP3-filen
     processed_file_path = os.path.join(processed_mp3_directory, file_name)
